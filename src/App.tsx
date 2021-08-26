@@ -1,5 +1,11 @@
-import React from 'react';
+import LoginPage from 'pages/LoginPage';
+import Dashboard from 'pages/Dashboard';
 
-const App = () => <div>App</div>;
+const App = () => (
+	<div>
+		<LoginPage />
+		<Dashboard />
+	</div>
+);
 
 export default App;
