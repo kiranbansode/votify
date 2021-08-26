@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import reactJsx from 'vite-react-jsx';
-import { VitePWA as vitePWA } from 'vite-plugin-pwa';
 import { EsLinter, linterPlugin, TypeScriptLinter } from 'vite-plugin-linter';
+// Gives linting error if not converted to camelCase.
+import { VitePWA as vitePWA } from 'vite-plugin-pwa';
 
-// https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
 	plugins: [
 		reactRefresh(),
@@ -15,11 +15,13 @@ export default defineConfig((configEnv) => ({
 			linters: [new EsLinter({ configEnv }), new TypeScriptLinter()],
 		}),
 	],
+	// Absolute import (aliases)
 	resolve: {
 		alias: [
 			{ find: 'pages', replacement: '/src/pages' },
 			{ find: 'components', replacement: '/src/components' },
 			{ find: 'assets', replacement: '/src/assets' },
+			{ find: 'utils', replacement: '/src/utils' },
 		],
 	},
 }));
