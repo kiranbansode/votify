@@ -1,0 +1,6 @@
+{
+	"extends": ["xo", "xo-react"],
+	"rules": {
+		"react/jsx-tag-spacing": { "beforeSelfClosing": "always" }
+	}
+}
