@@ -28,7 +28,9 @@ const InputField = ({
 	 *	2. onBlur :- prop to subscribe the input blur event.
 	 */
 	const { name, ref, ...registerProps } = register;
-	const fieldError = isInputFieldNested ? nestedErrorFinder(name, inputError) : null;
+	const fieldError = isInputFieldNested
+		? nestedErrorFinder(name, inputError)
+		: inputError[name]?.message;
 
 	return (
 		<TextField
