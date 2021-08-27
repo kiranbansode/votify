@@ -1,5 +1,7 @@
 import { useForm } from 'react-hook-form';
 import InputField from 'components/InputField';
+import { increment } from 'store/testSlice';
+import { useAppDispatch } from 'hooks/useAppDispatch';
 
 const LoginPage = () => {
 	const {
@@ -7,6 +9,8 @@ const LoginPage = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+
+	const dispatch = useAppDispatch();
 	return (
 		<div>
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
@@ -21,8 +25,9 @@ const LoginPage = () => {
 					register={register('lastname')}
 					inputError={errors}
 				/>
-
-				<button type="submit">Button</button>
+				<button type="submit" onClick={() => dispatch(increment())}>
+					Button
+				</button>
 			</form>
 		</div>
 	);
