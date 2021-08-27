@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { increment } from 'store/testSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch';
+import LoadingButton from '@material-ui/lab/LoadingButton';
+
 import TextInputField from 'components/TextInputField';
 import PasswordInputField from 'components/PasswordInputField';
+import Button from 'components/Button';
 
 const LoginPage = () => {
 	const {
@@ -16,8 +19,8 @@ const LoginPage = () => {
 		<div>
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
 				<TextInputField
-					inputLabel="First name"
-					register={register('firstname')}
+					inputLabel="Email ID"
+					register={register('email')}
 					inputError={errors}
 				/>
 
@@ -26,9 +29,16 @@ const LoginPage = () => {
 					register={register('password')}
 					inputError={errors}
 				/>
-				<button type="submit" onClick={() => dispatch(increment())}>
-					Button
-				</button>
+
+				<LoadingButton fullWidth loading size="large" color="error" variant="contained">
+					Login
+				</LoadingButton>
+
+				<div className="or">OR</div>
+
+				<Button color="primary" onClick={() => dispatch(increment())}>
+					Register
+				</Button>
 			</form>
 		</div>
 	);
