@@ -6,6 +6,9 @@ import LoadingButton from '@material-ui/lab/LoadingButton';
 import TextInputField from 'components/TextInputField';
 import PasswordInputField from 'components/PasswordInputField';
 import Button from 'components/Button';
+import InputWrapper from 'styled/InputWrapper';
+
+import './LoginPage.styles.scss';
 
 const LoginPage = () => {
 	const {
@@ -16,7 +19,7 @@ const LoginPage = () => {
 
 	const dispatch = useAppDispatch();
 	return (
-		<div>
+		<div className="loginpage">
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
 				<TextInputField
 					inputLabel="Email ID"
@@ -30,11 +33,11 @@ const LoginPage = () => {
 					inputError={errors}
 				/>
 
-				<LoadingButton fullWidth loading size="large" color="error" variant="contained">
+				<LoadingButton fullWidth size="large" color="error" variant="contained">
 					Login
 				</LoadingButton>
 
-				<div className="or">OR</div>
+				<InputWrapper id="or">OR</InputWrapper>
 
 				<Button color="primary" onClick={() => dispatch(increment())}>
 					Register

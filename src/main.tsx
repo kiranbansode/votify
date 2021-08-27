@@ -4,12 +4,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from 'store';
-
 import './index.css';
 import App from './App';
 
+// Fonts will be available to app wide
 import '@fontsource/roboto-mono';
 import '@fontsource/material-icons';
+import '@fontsource/bad-script';
 
 ReactDOM.render(
 	<React.StrictMode>

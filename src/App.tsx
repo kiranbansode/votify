@@ -1,7 +1,8 @@
 import LoginPage from 'pages/LoginPage';
+import './App.scss';
 
 const App = () => (
-	<div>
+	<div className="app">
 		<LoginPage />
 	</div>
 );

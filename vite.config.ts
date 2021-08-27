@@ -24,6 +24,7 @@ export default defineConfig((configEnv) => ({
 			{ find: 'utils', replacement: '/src/utils' },
 			{ find: 'store', replacement: '/src/store' },
 			{ find: 'hooks', replacement: '/src/hooks' },
+			{ find: 'styled', replacement: '/src/styled' },
 		],
 	},
 }));

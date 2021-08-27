@@ -6,7 +6,7 @@
 import { Button as MaterialUIButton } from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import { purple, pink } from '@material-ui/core/colors';
-
+import InputWrapper from 'styled/InputWrapper';
 interface ButtonProps {
 	color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
 	children?: any;
@@ -16,17 +16,19 @@ interface ButtonProps {
 }
 
 const Button = ({ color, variant, children, onClick, type, ...buttonProps }: ButtonProps) => (
-	<MaterialUIButton
-		fullWidth
-		variant={variant || 'contained'}
-		type={type || 'button'}
-		color={color || 'inherit'}
-		size="large"
-		onClick={onClick}
-		{...buttonProps}
-	>
-		{children || 'Button'}
-	</MaterialUIButton>
+	<InputWrapper>
+		<MaterialUIButton
+			fullWidth
+			variant={variant || 'contained'}
+			type={type || 'button'}
+			color={color || 'inherit'}
+			size="large"
+			onClick={onClick}
+			{...buttonProps}
+		>
+			{children || 'Button'}
+		</MaterialUIButton>
+	</InputWrapper>
 );
 
 export default Button;

@@ -1166,6 +1166,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/bad-script@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/bad-script/-/bad-script-4.5.0.tgz#51be19f1acd3f2b73a06abbd66091181cea91a61"
+  integrity sha512-GhD8F0D0OrNY2uuxWpZMhIMhf3ol8It6FBu6s+uCjgL9RijuKyQv6NEY++fOI3IULAUnzDwSO2D+Z9CaXjox1A==
+
 "@fontsource/material-icons@^4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@fontsource/material-icons/-/material-icons-4.5.0.tgz#8b9e5d84a1f3fac973118c8283b000b352b44d7f"

@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import nestedErrorFinder from 'utils/helperFunctions/nestedErrorFinder';
+import InputWrapper from 'styled/InputWrapper';
 
 interface Register {
 	name: string;
@@ -50,31 +51,33 @@ const PasswordInputField = ({
 	const handleShowPassword = () => setShowPassword(!showPassword);
 
 	return (
-		<FormControl fullWidth error={Boolean(fieldError)} variant="outlined">
-			<InputLabel htmlFor={name}>{inputLabel}</InputLabel>
-			<OutlinedInput
-				endAdornment={
-					<InputAdornment position="end">
-						<IconButton
-							aria-label="toggle password visibility"
-							edge="end"
-							onChange={handleShowPassword}
-							onClick={handleShowPassword}
-						>
-							{showPassword ? <Visibility /> : <VisibilityOff />}
-						</IconButton>
-					</InputAdornment>
-				}
-				id={name}
-				inputRef={ref}
-				name={name}
-				label={inputLabel}
-				type={showPassword ? 'text' : 'password'}
-				{...registerProps}
-				{...passwordInputFieldProps}
-			/>
-			{fieldError ? <FormHelperText>{fieldError}</FormHelperText> : null}
-		</FormControl>
+		<InputWrapper>
+			<FormControl fullWidth error={Boolean(fieldError)} variant="outlined">
+				<InputLabel htmlFor={name}>{inputLabel}</InputLabel>
+				<OutlinedInput
+					endAdornment={
+						<InputAdornment position="end">
+							<IconButton
+								aria-label="toggle password visibility"
+								edge="end"
+								onChange={handleShowPassword}
+								onClick={handleShowPassword}
+							>
+								{showPassword ? <Visibility /> : <VisibilityOff />}
+							</IconButton>
+						</InputAdornment>
+					}
+					id={name}
+					inputRef={ref}
+					name={name}
+					label={inputLabel}
+					type={showPassword ? 'text' : 'password'}
+					{...registerProps}
+					{...passwordInputFieldProps}
+				/>
+				{fieldError ? <FormHelperText>{fieldError}</FormHelperText> : null}
+			</FormControl>
+		</InputWrapper>
 	);
 };
 
