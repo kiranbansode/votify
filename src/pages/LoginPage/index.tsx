@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
-import InputField from 'components/InputField';
 import { increment } from 'store/testSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch';
+import TextInputField from 'components/TextInputField';
+import PasswordInputField from 'components/PasswordInputField';
 
 const LoginPage = () => {
 	const {
@@ -14,15 +15,15 @@ const LoginPage = () => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
-				<InputField
+				<TextInputField
 					inputLabel="First name"
 					register={register('firstname')}
 					inputError={errors}
 				/>
 
-				<InputField
-					inputLabel="Last Name"
-					register={register('lastname')}
+				<PasswordInputField
+					inputLabel="Password"
+					register={register('password')}
 					inputError={errors}
 				/>
 				<button type="submit" onClick={() => dispatch(increment())}>
