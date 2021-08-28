@@ -23,6 +23,7 @@ export default defineConfig((configEnv) => ({
 		alias: [
 			{ find: 'assets', replacement: '/src/assets' },
 			{ find: 'components', replacement: '/src/components' },
+			{ find: 'firebase', replacement: '/src/firebase' },
 			{ find: 'hooks', replacement: '/src/hooks' },
 			{ find: 'layouts', replacement: '/src/layouts' },
 			{ find: 'pages', replacement: '/src/pages' },

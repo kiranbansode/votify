@@ -1,5 +1,10 @@
 {
 	"extends": ["xo", "xo-react"],
+	"globals": {
+		"location": "readonly",
+		"unknown": "readonly",
+		"ReturnType": "readonly"
+	},
 	"parser": "babel-eslint",
 	"parserOptions": {
 		"ecmaFeatures": {

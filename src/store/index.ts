@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 import testSlice from './testSlice';
