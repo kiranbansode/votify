@@ -18,13 +18,14 @@ export default defineConfig((configEnv) => ({
 	// Absolute import (aliases)
 	resolve: {
 		alias: [
-			{ find: 'pages', replacement: '/src/pages' },
-			{ find: 'components', replacement: '/src/components' },
 			{ find: 'assets', replacement: '/src/assets' },
-			{ find: 'utils', replacement: '/src/utils' },
-			{ find: 'store', replacement: '/src/store' },
+			{ find: 'components', replacement: '/src/components' },
 			{ find: 'hooks', replacement: '/src/hooks' },
+			{ find: 'layouts', replacement: '/src/layouts' },
+			{ find: 'pages', replacement: '/src/pages' },
+			{ find: 'store', replacement: '/src/store' },
 			{ find: 'styled', replacement: '/src/styled' },
+			{ find: 'utils', replacement: '/src/utils' },
 		],
 	},
 }));
