@@ -32,11 +32,11 @@ const LoginPage = () => {
 					register={register('password')}
 					inputError={errors}
 				/>
-
-				<LoadingButton fullWidth size="large" color="error" variant="contained">
-					Login
-				</LoadingButton>
-
+				<InputWrapper>
+					<LoadingButton fullWidth size="large" color="error" variant="contained">
+						Login
+					</LoadingButton>
+				</InputWrapper>
 				<InputWrapper id="or">OR</InputWrapper>
 
 				<Button color="primary" onClick={() => dispatch(increment())}>
