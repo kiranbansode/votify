@@ -1,8 +1,8 @@
 import './Logo.styles.scss';
 
 const Logo = () => (
-	<div className="logo big">
-		{/* <img src="/src/assets/img/logo_mini.svg" alt="Votify Logo" /> */}
+	<div className="logo">
+		<img src="/src/assets/img/logo_large-minified.png" alt="Votify Logo" />
 	</div>
 );
 

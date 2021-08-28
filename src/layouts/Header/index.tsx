@@ -1,3 +1,9 @@
-const Header = () => <div>Header</div>;
+import Logo from 'components/Logo';
+
+const Header = () => (
+	<div>
+		<Logo />
+	</div>
+);
 
 export default Header;
