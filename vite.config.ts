@@ -6,6 +6,9 @@ import { EsLinter, linterPlugin, TypeScriptLinter } from 'vite-plugin-linter';
 import { VitePWA as vitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig((configEnv) => ({
+	build: {
+		outDir: 'public',
+	},
 	plugins: [
 		reactRefresh(),
 		reactJsx(),
