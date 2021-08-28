@@ -1,15 +1,29 @@
+/*
+	Author : Kiran Ashok Bansode
+*/
+
+import LoadingButton from '@material-ui/lab/LoadingButton';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { increment } from 'store/testSlice';
-import { useAppDispatch } from 'hooks/useAppDispatch';
-import LoadingButton from '@material-ui/lab/LoadingButton';
-import { validateEmailID, validatePassword } from 'utils/validations';
+
+/* Components */
 import TextInputField from 'components/TextInputField';
 import PasswordInputField from 'components/PasswordInputField';
 import Button from 'components/Button';
 import InputWrapper from 'styled/InputWrapper';
+import Logo from 'components/Logo';
 
+/* Hooks */
+import { useAppDispatch } from 'hooks/useAppDispatch';
+
+/* Redux */
+import { increment } from 'store/testSlice';
+
+/* Utils  */
+import { validateEmailID, validatePassword } from 'utils/validations';
+
+/* Styles */
 import './LoginPage.styles.scss';
 
 export const loginPageFormValidation = yup.object().shape({
@@ -36,6 +50,7 @@ const LoginPage = () => {
 
 	return (
 		<div className="loginpage">
+			<Logo />
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
 				<TextInputField
 					inputLabel="Email ID"

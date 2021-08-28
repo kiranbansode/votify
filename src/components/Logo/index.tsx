@@ -1,7 +1,11 @@
 import './Logo.styles.scss';
 
-const Logo = () => (
-	<div className="logo">
+interface LogoProps {
+	size?: 'big';
+}
+
+const Logo = ({ size }: LogoProps) => (
+	<div className={size ? `logo ${size}` : 'logo'}>
 		<img src="/src/assets/img/logo_large-minified.png" alt="Votify Logo" />
 	</div>
 );

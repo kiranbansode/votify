@@ -1,8 +1,10 @@
 .loginpage {
-	background-color: #ffffff;
-	margin: 20px;
-	padding: 10px;
-	border-radius: 15px;
+	form {
+		background-color: #ffffff;
+		margin: 20px;
+		padding: 10px;
+		border-radius: 15px;
+	}
 
 	#or {
 		display: flex;
