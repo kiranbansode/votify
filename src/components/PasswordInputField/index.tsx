@@ -13,7 +13,7 @@ import {
 	IconButton,
 } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
-import nestedErrorFinder from 'utils/helperFunctions/nestedErrorFinder';
+import errorFinder from 'utils/helperFunctions/errorFinder';
 import InputWrapper from 'styled/InputWrapper';
 
 interface Register {
@@ -24,7 +24,6 @@ interface Register {
 interface PasswordInputFieldProps {
 	inputError: FieldErrors;
 	inputLabel: string;
-	isInputFieldNested?: boolean;
 	register: Register;
 }
 
@@ -32,7 +31,6 @@ const PasswordInputField = ({
 	inputError,
 	inputLabel,
 	register,
-	isInputFieldNested,
 	...passwordInputFieldProps
 }: PasswordInputFieldProps) => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -44,9 +42,7 @@ const PasswordInputField = ({
 	const { ref, name, ...registerProps } = register;
 
 	//  Return Error message
-	const fieldError = isInputFieldNested
-		? nestedErrorFinder(name, inputError)
-		: inputError[name]?.message;
+	const fieldError = errorFinder(name, inputError);
 
 	const handleShowPassword = () => setShowPassword(!showPassword);
 

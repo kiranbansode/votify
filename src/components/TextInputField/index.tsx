@@ -1,6 +1,6 @@
 import { TextField } from '@material-ui/core';
 import { FieldErrors } from 'react-hook-form';
-import nestedErrorFinder from 'utils/helperFunctions/nestedErrorFinder';
+import errorFinder from 'utils/helperFunctions/errorFinder';
 import InputWrapper from 'styled/InputWrapper';
 
 interface Register {
@@ -11,7 +11,6 @@ interface Register {
 interface TextInputFieldProps {
 	inputError: FieldErrors;
 	inputLabel: string;
-	isInputFieldNested?: boolean;
 	register: Register;
 	variant?: 'standard' | 'filled' | 'outlined' | undefined;
 }
@@ -19,7 +18,6 @@ interface TextInputFieldProps {
 const TextInputField = ({
 	inputError,
 	inputLabel,
-	isInputFieldNested,
 	register,
 	variant,
 	...textInputFieldProps
@@ -31,9 +29,7 @@ const TextInputField = ({
 	const { name, ref, ...registerProps } = register;
 
 	//  Return Error message
-	const fieldError = isInputFieldNested
-		? nestedErrorFinder(name, inputError)
-		: inputError[name]?.message;
+	const fieldError = errorFinder(name, inputError);
 
 	return (
 		<InputWrapper>
