@@ -29,14 +29,14 @@ const TextInputField = ({
 	const { name, ref, ...registerProps } = register;
 
 	//  Return Error message
-	const fieldError = errorFinder(name, inputError);
+	const error = errorFinder(name, inputError);
 
 	return (
 		<InputWrapper>
 			<TextField
 				fullWidth
-				error={Boolean(fieldError)}
-				helperText={fieldError}
+				error={Boolean(error)}
+				helperText={error}
 				name={name}
 				id={name}
 				inputRef={ref}

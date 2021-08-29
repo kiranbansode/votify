@@ -3,54 +3,54 @@ import { Controller, FieldErrors, Control } from 'react-hook-form';
 import InputWrapper from 'styled/InputWrapper';
 import errorFinder from 'utils/helperFunctions/errorFinder';
 
-export interface option {
+export interface Option {
 	value: string | number;
-	menu: string;
-}
-export interface SelectInputFieldProps {
-	inputError: FieldErrors;
-	control: Control;
-	inputLabel: string;
-	options: option[];
+	option: string;
 }
 
-const SelectInputField = ({ inputError, control, inputLabel, options }: SelectInputFieldProps) => {
-	let name = '';
-	const error = name ?? errorFinder(name, inputError);
+export interface SelectInputFieldProps {
+	inputErrors: FieldErrors;
+	control: Control;
+	inputLabel: string;
+	selectFieldName: string;
+	options: Option[];
+}
+
+const SelectInputField = ({
+	inputErrors,
+	control,
+	inputLabel,
+	options,
+	selectFieldName,
+}: SelectInputFieldProps) => {
+	const error = errorFinder(selectFieldName, inputErrors);
 
 	return (
 		<InputWrapper>
 			<FormControl fullWidth error={Boolean(error)}>
-				<InputLabel id={inputLabel}>{capitalizeFirstLetter(inputLabel)}</InputLabel>
+				<InputLabel id={selectFieldName}>{inputLabel}</InputLabel>
 				<Controller
 					control={control}
-					name={inputLabel.toLowerCase()}
-					render={({ field }) => {
-						name = field.name.toLowerCase();
-						return (
-							<Select
-								labelId={inputLabel}
-								id={inputLabel}
-								label={capitalizeFirstLetter(inputLabel)}
-								{...field}
-							>
-								{options.map((option) => (
-									<MenuItem key={option.value} value={option.value}>
-										{option.menu}
-									</MenuItem>
-								))}
-							</Select>
-						);
-					}}
+					name={selectFieldName}
+					render={({ field }) => (
+						<Select
+							labelId={selectFieldName}
+							id={selectFieldName}
+							label={inputLabel}
+							{...field}
+						>
+							{options.map(({ value, option }) => (
+								<MenuItem key={value} value={value}>
+									{option}
+								</MenuItem>
+							))}
+						</Select>
+					)}
 				/>
 				<FormHelperText>{error}</FormHelperText>
 			</FormControl>
 		</InputWrapper>
 	);
 };
-
-function capitalizeFirstLetter(string: string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 export default SelectInputField;
