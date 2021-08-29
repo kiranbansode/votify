@@ -1,13 +1,29 @@
-import { useForm } from 'react-hook-form';
+import { useForm, FieldValues } from 'react-hook-form';
 import TextInputField from 'components/TextInputField';
 import PasswordInputField from 'components/PasswordInputField';
+import SelectInputField from 'components/Select';
+import { standardsOpt } from 'utils/options';
+
+const registrationFormDefaultValues = {
+	name: {
+		first: '',
+		middle: '',
+		last: '',
+	},
+	password: '',
+	confirmPassword: '',
+	standard: '_noSelect',
+};
 
 const Registration = () => {
 	const {
 		register,
 		handleSubmit,
+		control,
 		formState: { errors },
-	} = useForm();
+	} = useForm<FieldValues>({
+		defaultValues: registrationFormDefaultValues,
+	});
 
 	return (
 		<div>
@@ -25,9 +41,9 @@ const Registration = () => {
 				/>
 
 				<TextInputField
-					inputLabel="Surname"
+					inputLabel="Lastname"
 					inputError={errors}
-					register={register('name.sur')}
+					register={register('name.last')}
 				/>
 
 				<PasswordInputField
@@ -40,6 +56,13 @@ const Registration = () => {
 					inputLabel="Confirm Password"
 					inputError={errors}
 					register={register('confirmPassword')}
+				/>
+
+				<SelectInputField
+					control={control}
+					inputError={errors}
+					inputLabel="Standard"
+					options={standardsOpt}
 				/>
 
 				<button type="submit">Submit</button>
