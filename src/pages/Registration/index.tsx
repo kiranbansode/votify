@@ -3,13 +3,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import TextInputField from 'components/TextInputField';
 import PasswordInputField from 'components/PasswordInputField';
+import Button from 'components/Button';
 import SelectInputField from 'components/Select';
 import { divisionOpt, standardsOpt } from 'utils/options';
 
 const RegistrationFormValidation = yup.object().shape({
 	name: yup.object().shape({
 		firstname: yup.string().strict().trim().required(),
+		middlename: yup.string().strict().trim().required(),
+		lastname: yup.string().strict().trim().required(),
 	}),
+	password: yup.string().strict().trim().required(),
+	confirmPassword: yup.string().strict().trim().required(),
 	standard: yup
 		.string()
 		.strict()
@@ -96,7 +101,9 @@ const Registration = () => {
 					options={divisionOpt}
 				/>
 
-				<button type="submit">Submit</button>
+				<Button color="primary" type="submit">
+					Submit
+				</Button>
 			</form>
 		</div>
 	);

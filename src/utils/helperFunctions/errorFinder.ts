@@ -15,11 +15,13 @@ const errorFinder = (fieldName: string, errorsObject: FieldErrors) => {
 	let error;
 
 	if (names.length === 2) {
-		error = errorsObject[names[1]]?.message;
+		error = errorsObject[names[0]]?.[names[1]]?.message;
 	} else if (names.length === 3) {
-		error = errorsObject[names[2]]?.message;
+		error = errorsObject[names[0]]?.[names[1]]?.[names[2]]?.message;
 	} else if (names.length === 4) {
-		error = errorsObject[names[3]]?.message;
+		error = errorsObject[names[0]]?.[names[1]]?.[names[2]]?.[names[3]]?.message;
+	} else if (names.length === 5) {
+		error = errorsObject[names[0]]?.[names[1]]?.[names[2]]?.[names[3]]?.[names[4]]?.message;
 	} else {
 		error = errorsObject[names[0]]?.message;
 	}
