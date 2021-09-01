@@ -19,6 +19,7 @@
 		"arrow-parens": ["error", "always"],
 		"react/react-in-jsx-scope": 0,
 		"react/jsx-tag-spacing": [2, { "beforeSelfClosing": "always" }],
+		"react/jsx-sort-props": ["error", { "shorthandFirst": true, "callbacksLast": true }],
 		"no-undef": "warn"
 	}
 }

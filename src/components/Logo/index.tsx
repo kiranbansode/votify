@@ -6,7 +6,7 @@ interface LogoProps {
 
 const Logo = ({ size }: LogoProps) => (
 	<div className={size ? `logo ${size}` : 'logo'}>
-		<img src="/src/assets/img/logo_large-minified.png" alt="Votify Logo" />
+		<img alt="Votify Logo" src="/src/assets/img/logo_large-minified.png" />
 	</div>
 );
 

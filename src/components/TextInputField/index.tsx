@@ -37,10 +37,10 @@ const TextInputField = ({
 				fullWidth
 				error={Boolean(error)}
 				helperText={error}
-				name={name}
 				id={name}
 				inputRef={ref}
 				label={inputLabel}
+				name={name}
 				variant={variant || 'outlined'}
 				{...registerProps}
 				{...textInputFieldProps}

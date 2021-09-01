@@ -5,7 +5,7 @@ import TextInputField from 'components/TextInputField';
 import PasswordInputField from 'components/PasswordInputField';
 import Button from 'components/Button';
 import SelectInputField from 'components/Select';
-import { divisionOpt, standardsOpt } from 'utils/options';
+import { divisionOpt, genderOpt, standardsOpt } from 'utils/options';
 
 const RegistrationFormValidation = yup.object().shape({
 	name: yup.object().shape({
@@ -13,6 +13,7 @@ const RegistrationFormValidation = yup.object().shape({
 		middlename: yup.string().strict().trim().required(),
 		lastname: yup.string().strict().trim().required(),
 	}),
+	gender: yup.string().strict().trim().required(),
 	password: yup.string().strict().trim().required(),
 	confirmPassword: yup.string().strict().trim().required(),
 	standard: yup
@@ -35,10 +36,11 @@ const registrationFormDefaultValues = {
 		middlename: '',
 		lastname: '',
 	},
+	gender: '',
 	password: '',
 	confirmPassword: '',
-	standard: '_noSelect',
-	division: '_noSelect',
+	standard: '',
+	division: '',
 };
 
 const Registration = () => {
@@ -56,49 +58,81 @@ const Registration = () => {
 		<div>
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
 				<TextInputField
-					inputLabel="Firstname"
 					inputError={errors}
+					inputLabel="Firstname"
 					register={register('name.firstname')}
 				/>
 
 				<TextInputField
-					inputLabel="Middlename"
 					inputError={errors}
+					inputLabel="Middlename"
 					register={register('name.middlename')}
 				/>
 
 				<TextInputField
-					inputLabel="Lastname"
 					inputError={errors}
+					inputLabel="Lastname"
 					register={register('name.lastname')}
 				/>
 
-				<PasswordInputField
-					inputLabel="Password"
-					inputError={errors}
-					register={register('password')}
+				<SelectInputField
+					control={control}
+					fieldName="gender"
+					inputErrors={errors}
+					inputLabel="Gender"
+					options={genderOpt}
 				/>
 
-				<PasswordInputField
-					inputLabel="Confirm Password"
+				<TextInputField
 					inputError={errors}
-					register={register('confirmPassword')}
+					inputLabel="School Name"
+					register={register('schoolName')}
 				/>
 
 				<SelectInputField
-					inputErrors={errors}
 					control={control}
+					fieldName="standard"
+					inputErrors={errors}
 					inputLabel="Standard"
-					selectFieldName="standard"
 					options={standardsOpt}
 				/>
 
 				<SelectInputField
-					inputErrors={errors}
 					control={control}
+					fieldName="division"
+					inputErrors={errors}
 					inputLabel="Division"
-					selectFieldName="division"
 					options={divisionOpt}
+				/>
+
+				<TextInputField
+					inputError={errors}
+					inputLabel="Roll No."
+					register={register('rollNo')}
+				/>
+
+				<TextInputField
+					inputError={errors}
+					inputLabel="Mobile No."
+					register={register('mobileNo')}
+				/>
+
+				<TextInputField
+					inputError={errors}
+					inputLabel="Email ID"
+					register={register('email')}
+				/>
+
+				<PasswordInputField
+					inputError={errors}
+					inputLabel="Password"
+					register={register('password')}
+				/>
+
+				<PasswordInputField
+					inputError={errors}
+					inputLabel="Confirm Password"
+					register={register('confirmPassword')}
 				/>
 
 				<Button color="primary" type="submit">

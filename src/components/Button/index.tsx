@@ -19,10 +19,10 @@ const Button = ({ color, variant, children, onClick, type, ...buttonProps }: But
 	<InputWrapper>
 		<MaterialUIButton
 			fullWidth
-			variant={variant || 'contained'}
-			type={type || 'button'}
 			color={color || 'inherit'}
 			size="large"
+			type={type || 'button'}
+			variant={variant || 'contained'}
 			onClick={onClick}
 			{...buttonProps}
 		>

@@ -12,7 +12,7 @@ export interface SelectInputFieldProps {
 	inputErrors: FieldErrors;
 	control: Control;
 	inputLabel: string;
-	selectFieldName: string;
+	fieldName: string;
 	options: Option[];
 }
 
@@ -21,24 +21,19 @@ const SelectInputField = ({
 	control,
 	inputLabel,
 	options,
-	selectFieldName,
+	fieldName,
 }: SelectInputFieldProps) => {
-	const error = errorFinder(selectFieldName, inputErrors);
+	const error = errorFinder(fieldName, inputErrors);
 
 	return (
 		<InputWrapper>
 			<FormControl fullWidth error={Boolean(error)}>
-				<InputLabel id={selectFieldName}>{inputLabel}</InputLabel>
+				<InputLabel id={fieldName}>{inputLabel}</InputLabel>
 				<Controller
 					control={control}
-					name={selectFieldName}
+					name={fieldName}
 					render={({ field }) => (
-						<Select
-							labelId={selectFieldName}
-							id={selectFieldName}
-							label={inputLabel}
-							{...field}
-						>
+						<Select id={fieldName} label={inputLabel} labelId={fieldName} {...field}>
 							{options.map(({ value, option }) => (
 								<MenuItem key={value} value={value}>
 									{option}

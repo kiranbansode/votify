@@ -53,22 +53,23 @@ const LoginPage = () => {
 			<Logo />
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
 				<TextInputField
+					inputError={errors}
 					inputLabel="Email ID"
 					register={register('email')}
-					inputError={errors}
 				/>
 
 				<PasswordInputField
+					inputError={errors}
 					inputLabel="Password"
 					register={register('password')}
-					inputError={errors}
 				/>
+
 				<InputWrapper>
 					<LoadingButton
 						fullWidth
-						type="submit"
-						size="large"
 						color="error"
+						size="large"
+						type="submit"
 						variant="contained"
 					>
 						Login

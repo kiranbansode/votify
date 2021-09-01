@@ -65,8 +65,8 @@ const PasswordInputField = ({
 					}
 					id={name}
 					inputRef={ref}
-					name={name}
 					label={inputLabel}
+					name={name}
 					type={showPassword ? 'text' : 'password'}
 					{...registerProps}
 					{...passwordInputFieldProps}
