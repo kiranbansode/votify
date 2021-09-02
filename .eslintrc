@@ -3,7 +3,8 @@
 	"globals": {
 		"location": "readonly",
 		"unknown": "readonly",
-		"ReturnType": "readonly"
+		"ReturnType": "readonly",
+		"document": "readonly"
 	},
 	"parser": "babel-eslint",
 	"parserOptions": {

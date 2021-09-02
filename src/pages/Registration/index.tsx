@@ -5,6 +5,7 @@ import TextInputField from 'components/TextInputField';
 import PasswordInputField from 'components/PasswordInputField';
 import Button from 'components/Button';
 import SelectInputField from 'components/Select';
+import DateInputField from 'components/DatePicker';
 import { divisionOpt, genderOpt, standardsOpt } from 'utils/options';
 
 const RegistrationFormValidation = yup.object().shape({
@@ -41,6 +42,7 @@ const registrationFormDefaultValues = {
 	confirmPassword: '',
 	standard: '',
 	division: '',
+	dob: null,
 };
 
 const Registration = () => {
@@ -73,6 +75,13 @@ const Registration = () => {
 					inputError={errors}
 					inputLabel="Lastname"
 					register={register('name.lastname')}
+				/>
+
+				<DateInputField
+					control={control}
+					fieldName="dob"
+					inputErrors={errors}
+					inputLabel="Date of Birth"
 				/>
 
 				<SelectInputField
