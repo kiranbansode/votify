@@ -21,14 +21,14 @@ import { useAppDispatch } from 'hooks/useAppDispatch';
 import { increment } from 'store/testSlice';
 
 /* Utils  */
-import { validateEmailID, validatePassword } from 'utils/validations';
+import validations from 'utils/validations';
 
 /* Styles */
 import './LoginPage.styles.scss';
 
 export const loginPageFormValidation = yup.object().shape({
-	email: validateEmailID,
-	password: validatePassword,
+	email: validations.email,
+	password: validations.password,
 });
 
 export const defaultLoginPageData = {

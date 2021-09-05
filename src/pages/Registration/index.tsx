@@ -6,29 +6,25 @@ import PasswordInputField from 'components/PasswordInputField';
 import Button from 'components/Button';
 import SelectInputField from 'components/Select';
 import DateInputField from 'components/DatePicker';
+import validations from 'utils/validations';
 import { divisionOpt, genderOpt, standardsOpt } from 'utils/options';
 
 const RegistrationFormValidation = yup.object().shape({
 	name: yup.object().shape({
-		firstname: yup.string().strict().trim().required(),
-		middlename: yup.string().strict().trim().required(),
-		lastname: yup.string().strict().trim().required(),
+		firstname: validations.firstName,
+		middlename: validations.middleName,
+		lastname: validations.lastName,
 	}),
-	gender: yup.string().strict().trim().required(),
-	password: yup.string().strict().trim().required(),
-	confirmPassword: yup.string().strict().trim().required(),
-	standard: yup
-		.string()
-		.strict()
-		.trim()
-		.test('is_noSelect', 'Select Your Standard', (value) => value !== '_noSelect')
-		.required(),
-	division: yup
-		.string()
-		.strict()
-		.trim()
-		.test('is_noSelect', 'Select Your Division', (value) => value !== '_noSelect')
-		.required(),
+	schoolName: validations.schoolName,
+	gender: validations.gender,
+	dob: validations.dob,
+	std: validations.std,
+	div: validations.div,
+	rollNo: validations.rollNo,
+	mobileNo: validations.mobileNo,
+	email: validations.email,
+	password: validations.password,
+	confirmPassword: validations.confirmPassword,
 });
 
 const registrationFormDefaultValues = {
@@ -38,11 +34,15 @@ const registrationFormDefaultValues = {
 		lastname: '',
 	},
 	gender: '',
+	dob: null,
+	schoolName: '',
+	std: '',
+	div: '',
+	rollNo: '',
+	mobileNo: '',
+	email: '',
 	password: '',
 	confirmPassword: '',
-	standard: '',
-	division: '',
-	dob: null,
 };
 
 const Registration = () => {
@@ -77,19 +77,19 @@ const Registration = () => {
 					register={register('name.lastname')}
 				/>
 
-				<DateInputField
-					control={control}
-					fieldName="dob"
-					inputErrors={errors}
-					inputLabel="Date of Birth"
-				/>
-
 				<SelectInputField
 					control={control}
 					fieldName="gender"
 					inputErrors={errors}
 					inputLabel="Gender"
 					options={genderOpt}
+				/>
+
+				<DateInputField
+					control={control}
+					fieldName="dob"
+					inputErrors={errors}
+					inputLabel="Date of Birth"
 				/>
 
 				<TextInputField
@@ -100,7 +100,7 @@ const Registration = () => {
 
 				<SelectInputField
 					control={control}
-					fieldName="standard"
+					fieldName="std"
 					inputErrors={errors}
 					inputLabel="Standard"
 					options={standardsOpt}
@@ -108,7 +108,7 @@ const Registration = () => {
 
 				<SelectInputField
 					control={control}
-					fieldName="division"
+					fieldName="div"
 					inputErrors={errors}
 					inputLabel="Division"
 					options={divisionOpt}
@@ -146,6 +146,10 @@ const Registration = () => {
 
 				<Button color="primary" type="submit">
 					Submit
+				</Button>
+
+				<Button color="warning" type="reset">
+					Reset
 				</Button>
 			</form>
 		</div>
