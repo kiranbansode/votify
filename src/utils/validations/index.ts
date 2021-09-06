@@ -5,35 +5,39 @@ export const firstName = yup
 	.string()
 	.strict()
 	.trim(errorMessages.yup.TRIM)
-	.required(errorMessages.name.FIRSTNAME_IS_REQUIRED);
+	.required(errorMessages.name.firstname.IS_REQUIRED);
 
 export const middleName = yup
 	.string()
 	.strict()
 	.trim(errorMessages.yup.TRIM)
-	.required(errorMessages.name.MIDDLENAME_IS_REQUIRED);
+	.required(errorMessages.name.middlename.IS_REQUIRED);
 
 export const lastName = yup
 	.string()
 	.strict()
 	.trim(errorMessages.yup.TRIM)
-	.required(errorMessages.name.LASTNAME_IS_REQUIRED);
+	.required(errorMessages.name.lastname.IS_REQUIRED);
 
 export const std = yup
 	.string()
 	.strict()
 	.trim(errorMessages.yup.TRIM)
 	.test('is_noSelect', 'Select Your Standard', (value) => value !== '_noSelect')
-	.required(errorMessages.profile.std.STD_IS_REQUIRED);
+	.required(errorMessages.profile.std.IS_REQUIRED);
 
 export const div = yup
 	.string()
 	.strict()
 	.trim(errorMessages.yup.TRIM)
 	.test('is_noSelect', 'Select Your Standard', (value) => value !== '_noSelect')
-	.required(errorMessages.profile.div.DIV_IS_REQUIRED);
+	.required(errorMessages.profile.div.IS_REQUIRED);
 
-export const gender = yup.string().strict().trim(errorMessages.yup.TRIM).required();
+export const gender = yup
+	.string()
+	.strict()
+	.trim(errorMessages.yup.TRIM)
+	.required(errorMessages.profile.gender.IS_REQUIRED);
 
 export const schoolName = yup.string().strict().trim(errorMessages.yup.TRIM).required();
 
@@ -47,16 +51,16 @@ export const mobileNo = yup
 	.trim(errorMessages.yup.TRIM)
 	.matches(
 		/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-		errorMessages.profile.mobile.MOBILE_IS_INVALID,
+		errorMessages.profile.mobile.IS_INVALID,
 	)
-	.required(errorMessages.profile.mobile.MOBILE_IS_REQUIRED);
+	.required(errorMessages.profile.mobile.IS_REQUIRED);
 
 export const email = yup
 	.string()
 	.strict()
 	.trim(errorMessages.yup.TRIM)
 	.email(errorMessages.email.INVALID_EMAIL)
-	.required(errorMessages.email.EMAIL_IS_REQUIRED);
+	.required(errorMessages.email.IS_REQUIRED);
 
 export const password = yup
 	.string()
@@ -66,14 +70,14 @@ export const password = yup
 		/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
 		errorMessages.password.SHOULD_MATCH,
 	)
-	.required(errorMessages.password.PASSWORD_IS_REQUIRED);
+	.required(errorMessages.password.IS_REQUIRED);
 
 export const confirmPassword = yup
 	.string()
 	.strict()
 	.trim(errorMessages.yup.TRIM)
 	.oneOf([yup.ref('password'), null], errorMessages.confirmPassword.CONFIRM_PASSWORD_NOT_MATCH)
-	.required(errorMessages.confirmPassword.CONFIRM_PASSOWRD_IS_REQUIRED);
+	.required(errorMessages.confirmPassword.IS_REQUIRED);
 
 const validations = {
 	firstName,

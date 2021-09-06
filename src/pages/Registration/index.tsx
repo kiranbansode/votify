@@ -9,6 +9,8 @@ import DateInputField from 'components/DatePicker';
 import validations from 'utils/validations';
 import { divisionOpt, genderOpt, standardsOpt } from 'utils/options';
 
+import './Registration.styles.scss';
+
 const RegistrationFormValidation = yup.object().shape({
 	name: yup.object().shape({
 		firstname: validations.firstName,
@@ -57,7 +59,7 @@ const Registration = () => {
 	});
 
 	return (
-		<div>
+		<div className="registration">
 			<form onSubmit={handleSubmit((data) => console.log(data))}>
 				<TextInputField
 					inputError={errors}
